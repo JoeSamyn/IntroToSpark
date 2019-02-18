@@ -1,0 +1,22 @@
+<!--This is the templating engine for the java code.-->
+{{#partial "content"}}
+    <!--This is handlebars markup language to allow code to run in the html document. -->
+    <!--if username is not null then run code in if block. -->
+    <!--if it is null then say welcom students.-->
+    {{# if username }}
+        <h1>Welcome {{ username }}!</h1>
+        <p>View <a href="/ideas">All Course Ideas</a></p>
+    {{ else }}
+        <h1>Welcome Students!</h1>
+        <form action="/sign-in" method="post">
+            <!--type of input is text, the placeholder in the text box is "What is your name?" and the name of this input variable is username.-->
+            <input type="text" placeholder="What is your username?" name="username"></input>
+            <button>Sign In</button>
+        </form>
+    {{/if}}
+    <!--action is where it is directed to-->
+    <!--method is post because we want user to post to it. -->
+    <!--This post means that things are going to be submitted in the body of the text-->
+{{/partial}}
+
+{{> base.hbs }}

@@ -1,0 +1,28 @@
+{{#block "header"}}
+    <!doctype html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport"
+                  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <link rel="stylesheet" href="/css/main.css">
+            <title>{{#block "title"}}Welcome to Course Ideas{{/block}}</title>
+        </head>
+        <body>
+    <div class="page">
+    <!--Any model that has a attribute flash message. -->
+    <!--Handlebars will check this value, and if it does not exist, then it just will ignore it-->
+    {{#if flashMessage}}
+        <!--If the flash message exists, then it will show the value of the flash message. -->
+        <p id="flash-message">{{ flashMessage }}</p>
+    {{/if}}
+{{/block}}
+
+{{#block "content"}}{{/block}}
+
+{{#block "footer"}}
+            </div>
+        </body>
+    </html>
+{{/block}}

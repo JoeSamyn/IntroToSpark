@@ -1,0 +1,30 @@
+{{#partial "title" }}Ideas{{/partial}}
+
+{{#partial "content"}}
+    <h1>Current Ideas</h1>
+
+    <ul>
+        <!--This each clock helper knows to work with each item in the ideas list.-->
+        <!--For each idea in ideas.  Handlebars way of doing a foreach loop. -->
+        {{# each ideas}}
+            <li>
+            <!--This action is the url specified in the post method with the slug variable being pulled from the req.params in main.-->
+                <form action="/ideas/{{ slug }}/vote" method="post">
+                    <!--This handlebars framework understand POJO syntax, so therefor even though title is a private variable, it knows-->
+                    <!--to call the getTitle method for the idea object that it is currently on.  It understands title means getTitle()-->
+                    <a href="/ideas/{{ slug }}/">{{ title }}</a> ({{ voteCount }} votes) <button>Vote</button>
+
+                </form>
+            </li>
+        {{/each}}
+    </ul>
+
+    <form action="/ideas" method="post">
+        <!--This is a input that takes a text object and when that input is recieved it is given the name of "title".-->
+        <input type="text" placeholder="What is your idea?" name="title">
+        <button>Suggest!</button>
+    </form>
+
+{{/partial}}
+
+{{> base.hbs}}
